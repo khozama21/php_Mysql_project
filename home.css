@@ -72,18 +72,18 @@ nav ul li a {
 
 }
 
-nav ul li a:hover {
+/* nav ul li a:hover {
 
 
 
     text-decoration: none;
     color: #fff;
-    /* transform: scale(1.2); */
-    /* border: 1px solid ; */
+    transform: scale(1.2);
+    border: 1px solid ;
     background-color: rgba(255, 255, 255, 0.534);
     padding: 5px;
-    /* border-radius: 5px; */
-}
+    border-radius: 5px;
+} */
 
 .menu-icon {
     line-height: 60px;
@@ -97,7 +97,9 @@ nav ul li a:hover {
     display: none;
 }
 
-
+.menu a{
+    border: transparent;
+            }
 /* / navbar css */
 
 
