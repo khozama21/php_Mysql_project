@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-require "connect2.php";
+require "../connect2.php";
 
 ?>
 <?php
@@ -45,7 +45,7 @@ if (isset($_GET['id'])) {
         <span class="price">
             &dollar;<?=$product['product_price']?>
         </span>
-        <form action="cart2.php" method="post">
+        <form action="../check_cart/cart2.php" method="post">
             <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
             <input type="hidden" name="product_id" value="<?=$product['product_id']?>">
             <input type="submit" value="Add To Cart">

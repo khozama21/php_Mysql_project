@@ -47,20 +47,21 @@
                     <div class="menu">
                         <ul>
                             <li class="active">
-                                <a   class="btn btn-outline-light mb-4"  href="home.html">Home</a>
+                                <a   class="btn btn-outline-light mb-4"  href=" home.php">Home</a>
                             </li>
                             <li>
-                                <a  class="btn btn-outline-light mb-4"  href="#">Shop</a>
+                                <a  class="btn btn-outline-light mb-4"  href="http://localhost/php_mysql_project/shop/shop.php">Shop</a>
                             </li>
                             <li>
-                                <a   class="btn btn-outline-light mb-4" href="#">Cart</a>
+                                <a   class="btn btn-outline-light mb-4" href="http://localhost/php_mysql_project/check_cart/cart2.php">Cart</a>
                             </li>
                             <li>
-                                <a  class="btn btn-outline-light mb-4"  href="#">Contact Us</a>
+                                <a  class="btn btn-outline-light mb-4"  href="http://localhost/php_mysql_project/registration/login.php">login</a>
                             </li>
                             <li>
-                                <a  class="btn btn-outline-light mb-4"  href="#"></a>
+                                <a  class="btn btn-outline-light mb-4" href="http://localhost/php_mysql_project/registration/sign up.php">register</a>
                             </li>
+                          
                         </ul>
                     </div>
                 </nav>

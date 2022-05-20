@@ -1,5 +1,5 @@
 <?php
-include "connect.php";
+include "../connect2.php";
 
 $full_up = 0;
 $email;

@@ -1,10 +1,10 @@
 <?php
 
-include_once "header.php";
+include_once "../headFoot/header.php";
  
 // session_start();
 
-require "connect2.php"
+require "../connect2.php"
 
  
 
@@ -71,14 +71,14 @@ if ($products_in_cart) {
     <title>Document</title>
 
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/checkout.css" rel="stylesheet">
-    <link href="css/cart2.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/price-range.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/checkout.css" rel="stylesheet">
+    <link href="../css/cart2.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">

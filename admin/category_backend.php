@@ -1,5 +1,5 @@
 <?php 
-require "../connect.php";
+require "../connect2.php";
 function add_category ($connect , $category_name , $category_image){
     $sql_insert_category = "INSERT INTO categories (category_name , category_image) VALUES (:name , :image)
     
