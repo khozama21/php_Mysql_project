@@ -1,8 +1,7 @@
-
 <?php
 session_start();
 
-require "connect.php"
+require "connect2.php"
 
 ?>
 
@@ -65,7 +64,7 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
 }
 // Send the user to the place order page if they click the Place Order button, also the cart should not be empty
 if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-    header('Location: checkout.php');
+    header('Location: orderplaced.php');
     exit;
 }
 
@@ -93,102 +92,85 @@ if ($products_in_cart) {
 
 
 ?>
+ 
+ 
 
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
-<link rel="stylesheet" href="css/cart.css">
-
-</head>
-  <body>
-
-  
-  <div class="wrap cf">
-  <h1 class="projTitle">This is <span>Your</span> Shopping Cart</h1>
-  <div class="heading cf">
-    <h1>My Cart</h1>
-    <a href="shop.php" class="continue">Continue Shopping</a>
-  </div>
-  <div class="cart">
- 
- <ul class="cartWrap">
-  <?php if(empty($product)): ?>
-  <div style="text-align: center;"><h3>You have no products in cart</h3></div>
-  <?php else: ?>
-    <?php foreach($product as $product): ?>
-
- 
-      <li class="items odd">
-        
-    <div class="infoWrap"> 
-        <div class="cartSection">
-        <img src="fwy6zosqphc8hzjk0rgr.webp" alt="" class="itemImg" />
-          <p class="itemNumber"><?php $product['product_id'] ?> </p>
-          <h3><?php $product['product_name'] ?></h3>
-        
-           <p> <input type="numeber" name="quantity-<?=$product['product_id']?>" value="<?= $products_in_cart[$product['product_id']]?>" class="qty" /> x <?php $product['product_price'] ?></p>
-        
-         
-        </div>  
-    
-        
-        <div class="prodTotal cartSection">
-          <p><?php $product['product_price']*$products_in_cart[$product['product_id']]?></p>
-        </div>
-              <div class="cartSection removeWrap">
-           <a href="cart.php?page=cart&remove=<?= $product['product_id']?>" class="remove">x</a>
-        </div>
-      </div>
-      </li>
-     
-      
-        
-    
-      <?php endforeach;?>
-      <?php endif;?>
-
-      <!--<li class="items even">Item 2</li>-->
- 
-    </ul>
-  </div>
-  
-  <div class="promoCode"><label for="promo">Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
-  <a href="#" class="btn">Apply Coupon</a></div>
-  
-  <div class="subtotal cf">
-    <ul>
-      <li class="totalRow"><span class="label">Subtotal</span><span class="value"><?= $subtotal?></span></li>
-            <li class="totalRow final"><span class="label">Total</span><span class="value"><?= $subtotal?> </span></li>
-      <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
-    </ul>
-  </div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-
-
-
-
-
-
-
-
-    <!-- Optional JavaScript -->
+       <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="conatiner">
+    <div class="cart content-wrapper">
+    <h1>Shopping Cart</h1>
+    <form action="cart2.php" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="2">Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Total</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (empty($products)): ?>
+                <tr>
+                    <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
+                </tr>
+                <?php else: ?>
+                <?php foreach ($products as $product): ?>
+                <tr>
+                    <td class="img">
+                     
+                            <img src="fwy6zosqphc8hzjk0rgr.webp" width="50" height="50" alt="<?=$product['product_name']?>">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="cart2.php?page=product&id=<?=$product['product_id']?>"><?=$product['product_name']?></a>
+                        <br>
+                        <a href="cart2.php?page=cart&remove=<?=$product['product_id']?>" class="remove">Remove</a>
+                    </td>
+                    <td class="price">&dollar;<?=$product['product_price']?></td>
+                    <td class="quantity">
+                        <input type="number" name="quantity-<?=$product['product_id']?>" value="<?=$products_in_cart[$product['product_id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
+                    </td>
+                    <td class="price">&dollar;<?=$product['product_price'] * $products_in_cart[$product['product_id']]?></td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <div class="subtotal">
+            <span class="text">Subtotal</span>
+            <span class="price">&dollar;<?=$subtotal?></span>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="Update" name="update">
+            <a href="checkout.php"  > Place Order</a>
+
+            <a href="shop.php"  > Continue Shopping 
+        </div>
+    </form>
+</div>
+
+    </section>
+</body>
 </html>

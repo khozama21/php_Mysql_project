@@ -1,7 +1,32 @@
 <?php
-include_once "header.php"
-?>
+include_once "header.php";
 
+require 'connect.php';
+
+?>
+<?php
+
+$id=$_GET['id'];
+if (isset($_GET['id'])){
+  $stmt=$conn->prepare("SELECT * FROM products WHERE product_id ='$id'");
+  $stmt->execute([$_GET['id']]);
+
+  $product=$stmt->fetch(PDO::FETCH_ASSOC);
+  if(!$product){
+    exit('product does not exist');
+  }
+}
+  else {
+    exit('product does not exist');
+
+
+
+  }
+  
+
+$conn=NULL;
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -30,54 +55,39 @@ include_once "header.php"
 
    <!-- Product Description -->
    <div class="product-description">
-     <span>Product title</span>
-     <h1>Product name</h1>
-     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime dolore quaerat, in corporis ab error ea dolorum ullam voluptatem repellat totam rem enim a eius harum vitae minus repellendus sequi.</p>
+     <span>Title</span>
+     <h1><?php echo $product['product_name']?></h1>
+     <p><?php echo $product['product_description']?></p>
    </div>
 
-   <!-- Product Configuration -->
+ 
    <div class="product-configuration">
 
-     <!-- Product Color -->
-     <!-- <div class="product-color">
-       <span>Color</span>
-
-       <div class="color-choose">
-         <div>
-           <input data-image="red" type="radio" id="red" name="color" value="red" checked>
-           <label for="red"><span></span></label>
-         </div>
-         <div>
-           <input data-image="blue" type="radio" id="blue" name="color" value="blue">
-           <label for="blue"><span></span></label>
-         </div>
-         <div>
-           <input data-image="black" type="radio" id="black" name="color" value="black">
-           <label for="black"><span></span></label>
-         </div>
-       </div>
-
-     </div> -->
-
-     <!-- Cable Configuration -->
      <div class="cable-config">
-       <span>Options</span>
+      
+     <div class="product-price">
+     <span><?php echo $product['product_price']?>JOD</span>
 
-       <div class="cable-choose">
-         <button>option1</button>
-         <button>option2</button>
-         <button>option3</button>
-       </div>
-
-       <small style="color:gray ;">Make Sure You Chose a Size Or Color Before Adding To The Cart</small>
-     </div>
+    
    </div>
+   </div>
+       <div class="cable-choose">
+       <form action="index.php?page=cart" method="post">
+         <input type="number" name="quantity" min=1 max="<?=$product['quantity']?>" placeholder="Qnty"  required>
+         <input type="hidden" name="product_id" value="<?=$product['product_id']?>"   >
+         <input type="submit"  value="Add To Cart" class="cart-btn">
+
+       </form>
+
+       </div> 
+
+     
+      
+     </div>
+   
 
    <!-- Product Pricing -->
-   <div class="product-price">
-     <span>$price</span>
-     <a href="#" class="cart-btn">Add to cart</a>
-   </div>
+ 
  </div>
 </main>
     <!-- Optional JavaScript -->

@@ -1,10 +1,65 @@
 <?php
 
 include_once "header.php";
+ 
+// session_start();
 
+require "connect2.php"
+
+ 
+
+ 
 
 ?>
+<?php
+ 
+ $stmt = $conn->query("SELECT * FROM userstable WHERE user_id= 1");
+//  $stmt->execute();
+ $users = $stmt->fetch(PDO::FETCH_ASSOC);
+ 
+ // Send the user to the place order page if they click the Place Order button, also the cart should not be empty
+if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+    header('Location: orderplaced.php');
+    exit;
+}
 
+
+// Update product quantities in cart if the user clicks the "Update" button on the shopping cart page
+if (isset($_POST['update']) && isset($_SESSION['cart'])) {
+    // Loop through the post data so we can update the quantities for every product in cart
+    foreach ($_POST as $k => $v) {
+        if (strpos($k, 'quantity') !== false && is_numeric($v)) {
+            $id = str_replace('quantity-', '', $k);
+            $quantity = (int)$v;
+            // Always do checks and validation
+            if (is_numeric($id) && isset($_SESSION['cart'][$id]) && $quantity > 0) {
+                // Update new quantity
+                $_SESSION['cart'][$id] = $quantity;
+            }
+        }
+    }
+}
+// Check the session variable for products in cart
+$products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
+$products = array();
+$subtotal = 0.00;
+// If there are products in cart
+if ($products_in_cart) {
+    // There are products in the cart so we need to select those products from the database
+    // Products in cart array to question mark string array, we need the SQL statement to include IN (?,?,?,...etc)
+    $array_to_question_marks = implode(',', array_fill(0, count($products_in_cart), '?'));
+    $stmt = $conn->query('SELECT * FROM products WHERE product_id IN (' . $array_to_question_marks . ')');
+    // We only need the array keys, not the values, the keys are the id's of the products
+    // $stmt->execute(array_keys($products_in_cart));
+    // Fetch the products from the database and return the result as an Array
+    $products = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Calculate the subtotal
+    foreach ($products as $product) {
+        $subtotal += (float)$product['product_price'] * (int)$products_in_cart[$product['product_id']];
+    }
+}
+ ?>
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,43 +104,20 @@ include_once "header.php";
                     <div class="shopper-info">
                         <p>Shopper Information</p>
                         <form>
-                            <input type="text" placeholder="Display Name">
-                            <input type="text" placeholder="User Name">
-                            <input type="password" placeholder="Password">
-                            <input type="password" placeholder="Confirm password">
+                            <label>User Name: </label><p><?php echo $users['user_name']?></P>
+                            <label>Email: </label><p><?php echo $users['user_email']?></P>
+
+                            <label>Address: </label><p><?php echo $users['user_address']?></P>
+                            <label>Phone No.: </label><p><?php echo $users['user_phone']?></P>
+
+                            
+
                         </form>
-                        
-                        <a class="btn btn-primary" href="">proceed to Check Out </a>
+                        <a class="btn btn-primary" href="orderplaced.php">proceed to Check Out </a>
+                       
                     </div>
                 </div>
-                <div class="col-sm-5 clearfix">
-                    <div class="bill-to">
-                        <p>Bill To</p>
-                        <div class="form-one">
-                            <form>
-
-                                <input type="text" placeholder="Email*">
-
-                                <input type="text" placeholder="First Name *">
-
-                                <input type="text" placeholder="Last Name *">
-                                <input type="text" placeholder="Address 1 *">
-                                <input type="number" placeholder="+962">
-
-
-                            </form>
-                        </div>
-                        <div class="form-two">
-                            <form>
-                            <input type="password" placeholder="Confirm password">
-                            <input type="text" placeholder="Phone *">
-                            <input type="number" placeholder="+962">
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
+              
             </div>
         </div>
         <div class="review-payment">
@@ -105,105 +137,58 @@ include_once "header.php";
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($products as $product): ?>
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="images/cart/one.png" alt=""></a>
+                            <a href=""><img src="fwy6zosqphc8hzjk0rgr.webp" alt=""></a>
                         </td>
                         <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
-                            <p>Web ID: 1089772</p>
+                            <h4><a href=""><?php echo $product['product_name']?></a></h4>
+                            <p>  ID: <?php echo $product['product_id']?></p>
                         </td>
                         <td class="cart_price">
-                            <p>$59</p>
+                            <p><?php echo $product['product_price']?></p>
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
+                                 
+                        <input class="cart_quantity_input" type="text" name="quantity-<?=$product['product_id']?>" value="1" autocomplete="off" size="2">
+                                
                             </div>
+                           
                         </td>
                         <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
+                            <p class="cart_total_price"> <?php echo $product['product_price']?></p>
                         </td>
                         <td class="cart_delete">
                             <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
 
-                    <tr>
-                        <td class="cart_product">
-                            <a href=""><img src="images/cart/two.png" alt=""></a>
-                        </td>
-                        <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>$59</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cart_product">
-                            <a href=""><img src="images/cart/three.png" alt=""></a>
-                        </td>
-                        <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>$59</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
+
+                    
                     <tr>
                         <td colspan="4">&nbsp;</td>
                         <td colspan="2">
                             <table class="table table-condensed total-result">
                                 <tr>
                                     <td>Cart Sub Total</td>
-                                    <td>$59</td>
+                                    <td><?php $subtotal ?> </td>
                                 </tr>
-                                <tr>
-                                    <td>Exo Tax</td>
-                                    <td>$2</td>
-                                </tr>
+                                 
                                 <tr class="shipping-cost">
                                     <td>Shipping Cost</td>
                                     <td>Free</td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
-                                    <td><span>$61</span></td>
+                                    <td><span><?php $subtotal ?> </span></td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                   
                 </tbody>
             </table>
         </div>
