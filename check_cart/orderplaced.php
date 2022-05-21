@@ -31,6 +31,16 @@ require "../connect2.php";
     background-color:orange;
     color: white;
   }
+  .btn{
+    background-color: orange;
+    color: white;
+    border: none;
+  }
+  .btn:hover{
+    background-color: white;
+    color: orange;
+    border: solid 1px orange;
+  }
 </style>
 
 <body>
@@ -46,24 +56,30 @@ require "../connect2.php";
   <section class="container ">
 
 <?php 
-if (isset($_POST['emptycart'])){
+if (isset($_POST['emptyCart'])){
 $sql = "TRUNCATE TABLE `cart_temp`";
 
 //Prepare the SQL query.
 $statement = $conn->prepare($sql);
 
 //Execute the statement.
-$statement->execute();}
+$statement->execute();
+
+// header("location: cart2.php ");
+
+
+}
 
 
 ?>
 
-<form action="../check_cart/cart2.php" method="post">
+<form action="" method="post">
     <div>
       <h1>Your Order Has Been Placed</h1>
       <p>Thank you for ordering with us, we'll contact you by email with your order details.</p>
       <hr>
-      <input type="submit" name="emptyCart" value="Back To Shop" id="back">
+     <a class="btn btn-primary" href="../shop/shop.php"> <input type="hidden" name="emptyCart" value="Back To Shop" id="back"> Back To Shop</a>
+      
     </div>
 
 </form>

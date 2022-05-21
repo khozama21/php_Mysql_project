@@ -238,12 +238,10 @@
                         <li>
                             <a href="../shop/shop.php">Shop</a>
                         </li>
-                        <li>
-                            <a href="../check_cart/cart2.php" id="navicon2"><img src="../media/icons8-buying-50.png" width="70%" height="70%"></a>
-                        </li>
+                        
                         <li>
                             <div class="dropdown">
-                                <a class="dropbtn" id="navicon" href="http://localhost/php_mysql_project/registration/sign up.php"><img src="../media/icons8-test-account-80 (1).png" width="70%" height="70%"></a>
+                                <a class="dropbtn" id="navicon" href="http://localhost/php_mysql_project/registration/sign up.php">Profile</a>
                                 <div class="dropdown-content">
                                    <?php
                         include "../connect2.php";
@@ -267,7 +265,9 @@
                                 </div>
                             </div>
                         </li>
-                     
+                        <li>
+                            <a href="../check_cart/cart2.php" id="navicon2"><img src="../media/icons8-buying-50.png" width="70%" height="70%"></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
