@@ -74,7 +74,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="cat3.php">Fitness Clothing</a></h4>
+									<h4 class="panel-title"><a href="">Fitness Clothing</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
