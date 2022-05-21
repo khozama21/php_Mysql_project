@@ -3,9 +3,9 @@ include "../connect.php";
 
 function email_check($email)
 {
+    global $connect;
     $login = "SELECT * FROM `userstable` where user_email='$email'";
-    $result = $GLOBALS['pdo']->query($login);
-    $user = $result->fetch();
+    $result =$connect->query($login);
     $count = $result->rowCount();
     if ($count  > 0)
         return   true;

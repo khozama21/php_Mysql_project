@@ -3,13 +3,19 @@
 
  
 session_start();
-$sess= $_SESSION['user_id '];
+$sess= $_SESSION['user_id '] ?? 3;
+
 require "../connect2.php";
 
  
 include_once "../headFoot/header.php";
  
-
+// echo "<pre>";
+// print_r($arr_quantity);
+// print_r($arr_name);
+// print_r($arr_price);
+// echo "test";
+// echo "</pre>";
 ?>
 <?php
 
@@ -41,6 +47,11 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
         }
     }
 }
+
+
+
+
+
 // Check the session variable for products in cart
 $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 $products = array();
@@ -131,50 +142,52 @@ $subtotal = 0.00;
             <table class="table table-condensed">
                 <thead>
                     <tr class="cart_menu">
+                        <td></td>
                         <td class="image">Item</td>
-                        <td class="description"></td>
                         <td class="price">Price</td>
                         <td class="quantity">Quantity</td>
                         <td class="total">Total</td>
-                        <td></td>
+
+                       
                     </tr>
                 </thead>
                 <tbody>
                 <?php 
-                foreach ($products as $product):
+                $stat = $conn->query("SELECT * FROM cart_temp");
+                $rows = $stat->fetchAll(PDO::FETCH_ASSOC);
+                $total=0;
+                foreach($rows as $row) :
+                    $total+=$row['quantity'] * $row['product_price'];
                  ?>
                  
               
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="fwy6zosqphc8hzjk0rgr.webp" alt=""></a>
+                            <a href=""><img src="fwy6zosqphc8hzjk0rgr.webp" alt=""><?php ?></a>
                         </td>
-                        <td class="cart_description">
-                            <h4><a href=""><?php $product['product_name']?></a></h4>
-                            <p>  ID: <?php echo $product['product_id']?></p>
+                        <td>
+
+                            <h4><a href=""><?php echo $row['product_name']?></a></h4>
                         </td>
                         <td class="cart_price">
-                            <p><?php echo $product['product_price']?></p>
+                            <p><?php echo $row['product_price']?></p>
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
                                  
-                        <input class="cart_quantity_input" type="text" name="quantity-<?=$product['product_id']?>" value="1" autocomplete="off" size="2">
+                        <input class="cart_quantity_input" type="text" name="quantity-" value="<?php echo $row['quantity'] ?>" autocomplete="off" size="2">
                                 
                             </div>
                            
                         </td>
                         <td class="cart_total">
-                            <p class="cart_total_price"> <?php echo $product['product_price']?></p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            <p class="cart_total_price"> <?php echo $row['quantity'] * $row['product_price']?></p>
                         </td>
                     </tr>
 
-                    <?php 
-                endforeach; 
-                ?>
+                        <?php 
+                    endforeach; 
+                    ?>
 
                     
                     <tr>
@@ -183,7 +196,7 @@ $subtotal = 0.00;
                             <table class="table table-condensed total-result">
                                 <tr>
                                     <td>Cart Sub Total</td>
-                                    <td><?php $subtotal ?> </td>
+                                    <td><?=$total?> JOD </td>
                                 </tr>
                                  
                                 <tr class="shipping-cost">
@@ -192,7 +205,7 @@ $subtotal = 0.00;
                                 </tr>
                                 <tr>
                                     <td>Total</td>
-                                    <td><span><?php $subtotal ?> </span></td>
+                                    <td><span><?=$total?> JOD  </span></td>
                                 </tr>
                             </table>
                         </td>
@@ -201,15 +214,9 @@ $subtotal = 0.00;
                 </tbody>
             </table>
         </div>
-        <div class="payment-options">
-            <span>
-                <label><input type="checkbox">Cash On Delivery</label>
-            </span>
 
-        </div>
         </div>
 </section>
-
   
 </body>
 

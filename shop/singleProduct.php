@@ -1,8 +1,9 @@
 <?php
 session_start();
 require "../connect2.php";
-include_once "../headFoot/header.php"
+include_once "../headFoot/header.php";
 
+$id_user = $_SESSION['user_id '] ?? 0;
 ?>
 <?php
 // Check to make sure the id parameter is specified in the URL
@@ -83,19 +84,56 @@ if (isset($_GET['id'])) {
 
         <div class="cable-choose">
        
-        <form action="../check_cart/cart2.php" method="post">
-          <input type="number" name="quantity"   min="1" value="<?= $product['quantity'] ?>" placeholder="Quantity" required>
+        <form action="" method="post">
+          <input type="number" name="quantity"   min="1" value="1" placeholder="Quantity" required>
           <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
-          <input type="submit" value="Add To Cart" class="cart-btn" style="display: block; margin:20px;">
+          <input type="submit" value="Add To Cart" name="add_cart" class="cart-btn" style="display: block; margin:20px;">
 
         </form>
-        
 
         </div>
 
       </div>
 
+      <?php 
 
+        if(isset($_POST['add_cart'])){
+
+          if(!empty($_POST['quantity'])){
+          
+            // $_SESSION ['quantity'] .= $_POST['quantity']."<br>";
+            // $_SESSION ['product_name'] .= $product['product_name']."<br>";
+            // $_SESSION ['product_price'] .= $product['product_price']."<br>";
+            // $_SESSION ['product_id'] .= $product['product_id']."<br>";
+            
+            // $arr_quantity = explode("<br>",$_SESSION ['quantity']) ;
+            // $arr_name = explode("<br>",$_SESSION ['product_name']) ;
+            // $arr_price = explode("<br>",$_SESSION ['product_price']) ;
+
+            $id_prd = $_GET['id'];
+            $check = $conn->query("SELECT * FROM cart_temp WHERE product_id = '$id_prd'");
+            $row = $check->fetchAll(PDO::FETCH_ASSOC);
+            if($row){
+              echo "<script>alert('this item has been added to cart')</script>";
+            }
+            else{
+              
+            $sqlInsert = "INSERT INTO cart_temp( product_id, product_name, product_price, customer_id ,quantity) VALUES (:prd_id,:prd_name,:prd_price,:cust_id , :qty) ";
+
+            $stat=$conn->prepare($sqlInsert);
+            $stat->execute([
+              ":prd_id"=>$_GET['id'],
+              ":prd_name"=>$product['product_name'],
+              ":prd_price"=>$product['product_price'],
+              ":cust_id"=>$id_user,
+              ":qty"=>$_POST['quantity']
+            ]);
+            }
+          }
+        }
+        
+      
+      ?>
 
 
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-require "../connect2.php"
+// session_destroy();
+require_once "../connect2.php";
 
 ?>
 
@@ -151,49 +151,61 @@ exit;}
                                 <th> </th>
 
                             </tr>
-                        </thead>
+            </thead>
+                <?php
+                 $stat = $conn->query("SELECT * FROM cart_temp");
+                 $rows = $stat->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <?php if (empty($rows)) :?>
+                    <tr>
+                        <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
+                    </tr>
+                    <?php else : 
+
+                        ?>
                         <tbody class="cartWrap">
-                            <?php if (empty($products)) : ?>
-                                <tr>
-                                    <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
-                                </tr>
-                            <?php else : ?>
-                                <?php foreach ($products as $product) : ?>
-                                    <tr>
-                                        <td class="img" scope="row">
+                            
+                    <?php
+                    $total=0; 
+                    foreach($rows as $row) : 
+                       $total += $row['quantity'] * $row['product_price'];
+                        ?>
+                        <tr>
+                            <td class="img" scope="row">
 
-                                            <img src="../fwy6zosqphc8hzjk0rgr.webp" width="50" height="50" alt="<?= $product['product_name'] ?>">
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="cart2.php?page=product&id=<?= $product['product_id'] ?>"><?= $product['product_name'] ?></a>
-                                            <br>
+                                <img src="../fwy6zosqphc8hzjk0rgr.webp" width="50" height="50" alt="<?= $product['product_name'] ?>">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="cart2.php?page=product&id="><?= $row['product_name'] ?></a>
+                                <br>
 
-                                        </td>
-                                        <td class="price">&dollar;<?= $product['product_price'] ?></td>
-                                        <td class="quantity">
-                                            <input type="number" name="quantity-<?= $product['product_id'] ?>" value="<?= $products_in_cart[$product['product_id']] ?>" min="1" max="<?= $product['quantity'] ?>" placeholder="Quantity" required>
-                                        </td>
-                                        <td class="price">&dollar;<?= $product['product_price'] * $products_in_cart[$product['product_id']] ?></td>
-                                        <td> <a href="cart2.php?page=cart&remove=<?= $product['product_id'] ?>" class="remove">X</a>
-                                            <input class="btn continue" type="submit" value="Update Qnty" name="update" style="background:none ; border:0; color: #ef7828;">
-                                        </td>
-                                    </tr>
+                            </td>
+                            <td class="price"><?=  $row['product_price'] ?></td>
+                            <td class="quantity">
+                                <form  method="post">
+                                    <input type="number" name="prd_quantity" value="<?= $row['quantity'] ?>" min="1" placeholder="Quantity" required>
+                                </form>
+                            </td>
+                            <td class="price"><?= $row['quantity'] * $row['product_price']?> JOD </td>
+                            <td> 
+                                <a href="cart2.php?delete_product=<?= $row['product_id'] ?>" class="remove">X</a>
+                                <a  type="submit" class="btn btn-primary mx-2"href="cart2.php?update_product=<?= $row['product_id'] ?>" style="background-color:#ef7828 ; border:0 ;color:white">Update</a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total Cost order</td>
+                            <td class="total">
+                                    <label style="color:#ef7828 ; font-weight:700"><?=$total?> JOD</label>
+                            </td>
+                        </tr>
+                    </tbody>
 
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                            <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td> <span style="font-weight: bolder;">Subtotal</span></td>
-                                        <td>
-                                            <span  style="font-weight: bolder;">&dollar;<?= $subtotal ?></span>
-                                        </td>
-                                        <td></td>
-
-                                    </tr>
-                        </tbody>
                     </table>
                     <div class="subtotal cf">
 
@@ -209,6 +221,19 @@ exit;}
     </div>
 
     </div>
+    <?php 
+        if($_GET['delete_product']){
+            $delete_prd = $_GET['delete_product'];
+            $stat=$conn->query("DELETE FROM `cart_temp` WHERE product_id='$delete_prd'");
+        }
+        if($_GET['update_product']){
+            $updateQty = $_POST['prd_quantity'];
+            $update_prd = $_GET['update_product'];
+            $sql = "UPDATE cart_temp SET quantity='$updateQty' WHERE product_id = '$update_prd'";
+            $stat=$conn->query($sql);
+        }
+    ?>
+
 </body>
 
 </html>

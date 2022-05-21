@@ -245,8 +245,24 @@
                             <div class="dropdown">
                                 <a class="dropbtn" id="navicon" href="http://localhost/php_mysql_project/registration/sign up.php"><img src="../media/icons8-test-account-80 (1).png" width="70%" height="70%"></a>
                                 <div class="dropdown-content">
-                                    <a href="http://localhost/php_mysql_project/registration/sign up.php">Register</a>
-                                    <a href="http://localhost/php_mysql_project/registration/sign up.php">Login</a>
+                                   <?php
+                        include "../connect2.php";
+                        session_status();
+                        // session_destroy();
+
+                        if (isset($_SESSION['user_id '])) {
+                            $id = $_SESSION['user_id '];
+                            $name = "SELECT user_name  FROM `userstable` where user_id ='$id'";
+                            $result = $connect->query($login);
+                            $user_name = $result->fetch();
+
+                            echo "<li><a href='../registration/logout.php'>logout</a></li>";
+                            echo "Welcom " . $user_name;
+                        } else {
+                            echo " <a href='http://localhost/php_mysql_project/registration/sign up.php'>Register</a>";
+                            echo "<a href='http://localhost/php_mysql_project/registration/sign up.php'>Login</a>";
+                        }
+                        ?>
 
                                 </div>
                             </div>
@@ -257,7 +273,7 @@
             </nav>
         </header>
 
-
+       
 
 
         <!-- Optional JavaScript -->

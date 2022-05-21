@@ -1,22 +1,22 @@
 <?php
+
 include_once "../headFoot/header.php";
- 
+
 require '../connect2.php';
-
-
 ?>
+
+
 <?php
- 
-$stmt = $conn->prepare('SELECT * FROM products ORDER BY product_id ASC ');
-$stmt->execute();
+
+$stmt = $conn->query('SELECT * FROM products WHERE category_id=1 ');
+
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// $stmt2 = $conn->query('SELECT * FROM categories ORDER BY category_id ASC ');
-// $stmt->execute();
-// $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,9 +51,6 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			<img src="images/shop/advertisement.jpg" alt="" />
 		</div>
 	</section>
-
-
-
 	<section>
 		<div class="container">
 			<div class="row">
@@ -61,7 +58,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 					<div class="left-sidebar">
 						<h2>Category</h2>
 						<div class="panel-group category-products" id="accordian">
-						 
+
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title"><a href="cat1.php">Fitness Equipment</a></h4>
@@ -100,89 +97,46 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 						</div>
 						<!--/category-productsr-->
 
-						 
+
 
 
 
 					</div>
 				</div>
-
 				<div class="col-sm-9 padding-right">
 					<div class="features_items">
 						<!--features_items-->
 						<h2 class="title text-center">Featured Items</h2>
 
-						<?php foreach ($products as $product):?>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-									
-										<img src="../media/fwy6zosqphc8hzjk0rgr.webp" alt="" />
-										
-										<h2><?php echo $product['product_price']?></h2>
-										<p><?php echo $product['product_name']?></p>
+						<?php foreach ($products as $product) : ?>
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
 
-									</div>
-									<div class="product-overlay">
+											<img src="../media/fwy6zosqphc8hzjk0rgr.webp" alt="" />
 
-										<div class='overlay-content'>
+											<h2><?php echo $product['product_price'] ?></h2>
+											<p><?php echo $product['product_name'] ?></p>
 
-											<h2><?php echo $product['product_price']?></h2>
-											<p><?php echo $product['product_name']?></p>
-											<a href="singleProduct.php?id=<?php echo $product['product_id']?>"  class='btn btn-default add-to-cart'>VIEW </a>
+										</div>
+										<div class="product-overlay">
+
+											<div class='overlay-content'>
+
+												<h2><?php echo $product['product_price'] ?></h2>
+												<p><?php echo $product['product_name'] ?></p>
+												<a href="singleProduct.php?id=<?php echo $product['product_id'] ?>" class='btn btn-default add-to-cart'>VIEW </a>
+
+											</div>
 
 										</div>
 
 									</div>
-								
-								</div>
 
+								</div>
 							</div>
-						</div>
 						<?php endforeach ?>
-						<!-- <div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="fwy6zosqphc8hzjk0rgr.webp" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart">VIEW</a>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="fwy6zosqphc8hzjk0rgr.webp" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div> -->
-
-
 
 
 
@@ -213,5 +167,3 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
-
- 
