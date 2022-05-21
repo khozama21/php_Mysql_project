@@ -215,7 +215,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 											<h2><?php echo $product['product_price']?></h2>
 											<p><?php echo $product['product_name']?></p>
-											<a href="product.php?id=<?php echo $product['product_id']?>"  class='btn btn-default add-to-cart'>VIEW </a>
+											<a href="singleProduct.php?id=<?php echo $product['product_id']?>"  class='btn btn-default add-to-cart'>VIEW </a>
 
 										</div>
 
