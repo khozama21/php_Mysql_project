@@ -179,19 +179,20 @@ exit;}
                                             <input class="btn continue" type="submit" value="Update Qnty" name="update" style="background:none ; border:0; color: #ef7828;">
                                         </td>
                                     </tr>
-                                    <tr>
+
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            <tr>
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
-                                        <td> <span style="font-weight: bolder;">Subtotal= </span>
+                                        <td> <span style="font-weight: bolder;">Subtotal</span></td>
+                                        <td>
                                             <span  style="font-weight: bolder;">&dollar;<?= $subtotal ?></span>
                                         </td>
                                         <td></td>
 
                                     </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
                         </tbody>
                     </table>
                     <div class="subtotal cf">

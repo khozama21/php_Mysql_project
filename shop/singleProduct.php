@@ -84,11 +84,12 @@ if (isset($_GET['id'])) {
         <div class="cable-choose">
        
         <form action="../check_cart/cart2.php" method="post">
-          <input type="number" name="quantity"   min="1" max="<?= $product['quantity'] ?>" placeholder="Quantity" required>
+          <input type="number" name="quantity"   min="1" value="<?= $product['quantity'] ?>" placeholder="Quantity" required>
           <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
           <input type="submit" value="Add To Cart" class="cart-btn" style="display: block; margin:20px;">
 
         </form>
+        
 
         </div>
 

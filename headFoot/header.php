@@ -103,15 +103,16 @@
         nav ul li a:hover {
 
 
-            background-color:#fafafaa5;;
+            background-color: #fafafaa5;
+            ;
             color: rgb(255, 255, 255);
             text-decoration: none;
             border: transparent;
             border-radius: 5%;
             padding: 5px;
 
-          
-        
+
+
 
 
         }
@@ -144,8 +145,8 @@
                 background: #e08547;
             }
 
-         
-           
+
+
 
             .showing {
                 max-height: 34em;
@@ -156,7 +157,7 @@
                 width: 100%;
                 padding: 24px;
                 text-align: center;
-            
+
             }
 
             .menu-icon {
@@ -165,8 +166,54 @@
 
             }
         }
-        .menu a{
-border: transparent;
+
+        .menu a {
+            border: transparent;
+        }
+
+        #navicon:hover {
+            background-color: transparent;
+            border: none;
+        }
+
+        #navicon2:hover {
+            background-color: transparent;
+            border: none;
+        }
+
+
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: fixed;
+          
+            background-color: #ef7828;
+            min-width: 110px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 10px 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            color: #fff;
+        }
+
+        /* Add a grey background color to dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.648);
+            color: #fff;
+            
+        }
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
     </style>
 </head>
@@ -186,21 +233,25 @@ border: transparent;
                 <div class="menu">
                     <ul>
                         <li class="active">
-                            <a   href="../home.php">Home</a>
+                            <a href="../home.php">Home</a>
                         </li>
                         <li>
-                            <a    href="../shop/shop.php">Shop</a>
+                            <a href="../shop/shop.php">Shop</a>
                         </li>
                         <li>
-                            <a   href="../check_cart/cart2.php">Cart</a>
+                            <a href="../check_cart/cart2.php" id="navicon2"><img src="../media/icons8-buying-50.png" width="70%" height="70%"></a>
                         </li>
                         <li>
-                            <a  href="http://localhost/php_mysql_project/registration/login.php">login</a>
+                            <div class="dropdown">
+                                <a class="dropbtn" id="navicon" href="http://localhost/php_mysql_project/registration/sign up.php"><img src="../media/icons8-test-account-80 (1).png" width="70%" height="70%"></a>
+                                <div class="dropdown-content">
+                                    <a href="http://localhost/php_mysql_project/registration/sign up.php">Register</a>
+                                    <a href="http://localhost/php_mysql_project/registration/sign up.php">Login</a>
+
+                                </div>
+                            </div>
                         </li>
-                        <li>
-                            <a  href="http://localhost/php_mysql_project/registration/sign up.php">register</a>
-                        </li>
-                        
+                     
                     </ul>
                 </div>
             </nav>
