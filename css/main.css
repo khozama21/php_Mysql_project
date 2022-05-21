@@ -14,7 +14,7 @@ body {
 	color: #555555;
 	background-color: #FFFFFF;
 	margin: 0;
-	padding-bottom: 100px; /* Same height as footer */
+	padding-bottom: 100px;  
 }
 h1, h2, h3, h4, h5 {
 	color: #394352;
@@ -25,10 +25,10 @@ h1, h2, h3, h4, h5 {
 
 
 
-.content-wrapper {
+/* .content-wrapper {
 	width:100%;
 	margin: 0 auto;
-} 
+}  */
 main .recentlyadded .products, main .products .products-wrapper {
 	display: flex;
 	flex-wrap: wrap;

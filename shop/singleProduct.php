@@ -69,6 +69,9 @@ if (isset($_GET['id'])) {
       <div class="product-configuration">
 
 <div class="cable-config">
+
+
+
   </div>
   <div class="description">
   <?= $product['product_description'] ?>
