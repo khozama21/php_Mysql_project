@@ -1,7 +1,7 @@
 <?php
 
 include "fun.php";
-include "../connect2.php";
+include "../connect.php";
 
 $full_up = 0;
 session_start();

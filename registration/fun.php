@@ -1,5 +1,5 @@
 <?php
-include "../connect2.php";
+include "../connect.php";
 
 function email_check($email)
 {
