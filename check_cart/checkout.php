@@ -1,20 +1,22 @@
 <?php
 
+
+ 
+session_start();
+$sess= $_SESSION['user_id '];
+require "../connect2.php";
+
+ 
 include_once "../headFoot/header.php";
- 
-// session_start();
-
-require "../connect2.php"
-
- 
-
  
 
 ?>
 <?php
+
  
- $stmt = $conn->query("SELECT * FROM userstable WHERE user_id= 1");
+ $stmt = $conn->query("SELECT * FROM userstable WHERE user_id='$sess'");
 //  $stmt->execute();
+ 
  $users = $stmt->fetch(PDO::FETCH_ASSOC);
  
  // Send the user to the place order page if they click the Place Order button, also the cart should not be empty
@@ -43,21 +45,22 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
 $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 $products = array();
 $subtotal = 0.00;
+// print_r($products_in_cart) ;
 // If there are products in cart
-if ($products_in_cart) {
-    // There are products in the cart so we need to select those products from the database
-    // Products in cart array to question mark string array, we need the SQL statement to include IN (?,?,?,...etc)
-    $array_to_question_marks = implode(',', array_fill(0, count($products_in_cart), '?'));
-    $stmt = $conn->query('SELECT * FROM products WHERE product_id IN (' . $array_to_question_marks . ')');
-    // We only need the array keys, not the values, the keys are the id's of the products
-    // $stmt->execute(array_keys($products_in_cart));
-    // Fetch the products from the database and return the result as an Array
-    $products = $stmt->fetch(PDO::FETCH_ASSOC);
-    // Calculate the subtotal
-    foreach ($products as $product) {
-        $subtotal += (float)$product['product_price'] * (int)$products_in_cart[$product['product_id']];
-    }
-}
+// if ($products_in_cart) {
+//     // There are products in the cart so we need to select those products from the database
+//     // Products in cart array to question mark string array, we need the SQL statement to include IN (?,?,?,...etc)
+//     $array_to_question_marks = implode(',', array_fill(0, count($products_in_cart), '?'));
+//     $stmt = $conn->query('SELECT * FROM products WHERE product_id IN (' . $array_to_question_marks . ')');
+//     // We only need the array keys, not the values, the keys are the id's of the products
+//     // $stmt->execute(array_keys($products_in_cart));
+//     // Fetch the products from the database and return the result as an Array
+//     $products = $stmt->fetch(PDO::FETCH_ASSOC);
+//     // Calculate the subtotal
+//     foreach ($products as $product) {
+//         $subtotal += (float)$product['product_price'] * (int)$products_in_cart[$product['product_id']];
+//     }
+//}
  ?>
  
 
@@ -137,13 +140,17 @@ if ($products_in_cart) {
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($products as $product): ?>
+                <?php 
+                foreach ($products as $product):
+                 ?>
+                 
+              
                     <tr>
                         <td class="cart_product">
                             <a href=""><img src="fwy6zosqphc8hzjk0rgr.webp" alt=""></a>
                         </td>
                         <td class="cart_description">
-                            <h4><a href=""><?php echo $product['product_name']?></a></h4>
+                            <h4><a href=""><?php $product['product_name']?></a></h4>
                             <p>  ID: <?php echo $product['product_id']?></p>
                         </td>
                         <td class="cart_price">
@@ -165,7 +172,9 @@ if ($products_in_cart) {
                         </td>
                     </tr>
 
-                    <?php endforeach; ?>
+                    <?php 
+                endforeach; 
+                ?>
 
                     
                     <tr>
