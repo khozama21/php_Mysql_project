@@ -4,6 +4,9 @@ include "fun.php";
 include "../connect.php";
 session_start();
 
+// session_destroy();
+
+
 $_SESSION['full_up'] = 0;;
 
 

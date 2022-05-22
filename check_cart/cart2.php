@@ -183,14 +183,16 @@ exit;}
                             </td>
                             <td class="price"><?=  $row['product_price'] ?></td>
                             <td class="quantity">
-                                <form  method="post">
+                            <form  method="post">
                                     <input type="number" name="prd_quantity" value="<?= $row['quantity'] ?>" min="1" placeholder="Quantity" required>
-                                </form>
+
                             </td>
                             <td class="price"><?= $row['quantity'] * $row['product_price']?> JOD </td>
                             <td> 
                                 <a href="cart2.php?delete_product=<?= $row['product_id'] ?>" class="remove">X</a>
-                                <a  type="submit" class="btn btn-primary mx-2"href="cart2.php?update_product=<?= $row['product_id'] ?>" style="background-color:#ef7828 ; border:0 ;color:white">Update</a>
+                                <input type="hidden" value="<?= $row['product_id'] ?>" name="update_product" >
+                                <input type="submit" name="Update" value="Update" class="btn btn-primary mx-2"  >
+                            </form>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -201,7 +203,7 @@ exit;}
                             <td></td>
                             <td>Total Cost order</td>
                             <td class="total">
-                                    <label style="color:#ef7828 ; font-weight:700"><?=$total?> JOD</label>
+                                    <label style="color:#ef7828 ; font-weight:700"><?php if(isset($total)){echo $total;}else{echo 0;}?> JOD</label>
                             </td>
                         </tr>
                     </tbody>
@@ -222,13 +224,15 @@ exit;}
 
     </div>
     <?php 
-        if($_GET['delete_product']){
+        if(isset($_GET['delete_product'])){
             $delete_prd = $_GET['delete_product'];
             $stat=$conn->query("DELETE FROM `cart_temp` WHERE product_id='$delete_prd'");
         }
-        if($_GET['update_product']){
+        if(isset($_POST['Update'])){
             $updateQty = $_POST['prd_quantity'];
-            $update_prd = $_GET['update_product'];
+            $update_prd = $_POST['update_product'];
+            echo $update_prd;
+            echo $updateQty;
             $sql = "UPDATE cart_temp SET quantity='$updateQty' WHERE product_id = '$update_prd'";
             $stat=$conn->query($sql);
         }
