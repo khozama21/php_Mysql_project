@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
     <!-- Left Column /   Image -->
     <div class="left-column">
 
-      <img src="../fwy6zosqphc8hzjk0rgr.webp" width="500" height="500" alt="<?= $product['product_name'] ?>">
+      <img src="<?= $product['product_image']?>" width="500" height="500" alt="<?= $product['product_name'] ?>">
     </div>
 
 
