@@ -135,7 +135,7 @@ exit;}
         <h1 class="projTitle">This is <span>Your</span> Shopping Cart</h1>
         <div class="heading cf">
             <h1>My Cart</h1>
-            <a href="../shop.php" class="continue">Continue Shopping</a>
+            <a href="../shop/shop.php" class="continue">Continue Shopping</a>
         </div>
         <div class="infoWrap">
             <div class="cartSection">
