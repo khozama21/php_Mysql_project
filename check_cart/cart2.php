@@ -198,13 +198,30 @@ exit;}
                         <?php endforeach; ?>
                         <?php endif; ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Total Cost order</td>
-                            <td class="total">
-                                    <label style="color:#ef7828 ; font-weight:700"><?php if(isset($total)){echo $total;}else{echo 0;}?> JOD</label>
-                            </td>
+                            <form method="post">
+                                <td>Coupon</td>
+                                <td><input type="text" name="coupon" style=" width:60% "></td>
+                                <td><input type="submit" name="check" value="check" class="btn btn-primary" style="background-color :#ef7828 ;"></td>
+                            </form>
+                                <td>Total Cost order</td>
+                                <?php 
+                                        if(isset($_POST['check'])){
+                                            $coupon_input = $_POST['coupon'];
+                                            $stat = $conn->query("SELECT * FROM discount WHERE discount_name = '$coupon_input'");
+                                            $row = $stat->fetch(PDO::FETCH_ASSOC);
+                                            if($row){
+
+                                                $total =$total - ($total* $row['discount_amount']);
+
+                                            }else{
+                                                echo "<script>alert('This Coupon Does Not Exist')</script>";
+                                            }
+                                        }
+
+                                ?>
+                                <td class="total">
+                                        <label style="color:#ef7828 ; font-weight:700"><?php if(isset($total)){echo $total;}else{echo 0;}?> JOD</label>
+                                </td>
                         </tr>
                     </tbody>
 
