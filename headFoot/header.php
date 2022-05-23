@@ -93,7 +93,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="../home.php"><img src="../media/Focus Zone-logos_black.png" width="200px" height="100px" alt="" /></a>
+							<a href="home.php"><img src="Focus Zone-logos_black.png" width="200px" height="100px" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -144,7 +144,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="/home.php" class="active">Home</a></li>
+								<li><a href="home.php" class="active">Home</a></li>
 								<li class="dropdown"><a href="../shop/shop.php">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="../shop/cat1.php">Fitness Equipment</a></li>
@@ -155,7 +155,7 @@
                                 </li> 
 								
 								<li><a href="404.html">About Us</a></li>
-								<li><a href="contact-us.html">Contact Us</a></li>
+								<li><a href="../contact-us.php">Contact Us</a></li>
 							</ul>
 						</div>
 					</div>
