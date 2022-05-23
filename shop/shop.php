@@ -214,5 +214,5 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
-
+<?php include_once "../headFoot/footer.php"?>
  

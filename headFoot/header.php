@@ -7,10 +7,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+   
+    <link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/maain.css" rel="stylesheet">
+	 
+
+
+	<link href="../css/responsive.css" rel="stylesheet">
+
+
+
+      <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 
@@ -32,256 +56,125 @@
     <!-- style -->
 
 
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            scroll-behavior: smooth;
-            font-family: 'Bebas', sans-serif;
-        }
-
-
-        /* ________________________________________________________________________________________________________________ */
-
-
-        .content {
-            width: 94%;
-            margin: 4em auto;
-            font-size: 20px;
-            line-height: 30px;
-            text-align: justify;
-        }
-
-        .logo {
-            line-height: 60px;
-            float: left;
-            margin: 16px 46px;
-            color: #fff;
-            font-size: 20px;
-            letter-spacing: 2px;
-            /* font-family: 'Koulen', cursive; */
-            border: #fff 1px solid;
-            position: absolute;
-            padding: 5px;
-        }
-
-        nav {
-            position: sticky;
-            width: 100%;
-            line-height: 60px;
-        }
-
-        nav ul {
-            line-height: 60px;
-            list-style: none;
-            background-color: #ef7828;
-            overflow: hidden;
-            color: #fff;
-            padding: 0;
-            text-align: right;
-            margin: 0;
-            padding-right: 40px;
-
-        }
-
-
-
-        nav ul li {
-            display: inline-block;
-            padding: 16px 40px;
-            ;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 20px;
-        }
-
-        nav ul li a:hover {
-
-
-            background-color: #fafafaa5;
-            ;
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-            border: transparent;
-            border-radius: 5%;
-            padding: 5px;
-
-
-
-
-
-        }
-
-        .menu-icon {
-            line-height: 60px;
-            width: 100%;
-            background: #000;
-            text-align: right;
-            box-sizing: border-box;
-            padding: 15px 24px;
-            cursor: pointer;
-            color: #fff;
-            display: none;
-        }
-
-        @media screen and (max-width: 1024px) {
-
-            .logo {
-                position: absolute;
-                top: 0;
-                margin-top: 16px;
-                font-size: 20px;
-
-            }
-
-
-            nav ul {
-                max-height: 0px;
-                background: #e08547;
-            }
-
-
-
-
-            .showing {
-                max-height: 34em;
-            }
-
-            nav ul li {
-                box-sizing: border-box;
-                width: 100%;
-                padding: 24px;
-                text-align: center;
-
-            }
-
-            .menu-icon {
-                display: block;
-                background-color: #ef7828;
-
-            }
-        }
-
-        .menu a {
-            border: transparent;
-        }
-
-        #navicon:hover {
-            background-color: transparent;
-            border: none;
-        }
-
-        #navicon2:hover {
-            background-color: transparent;
-            border: none;
-        }
-
-
-
-        /* Dropdown content (hidden by default) */
-        .dropdown-content {
-            display: none;
-            position: fixed;
-          
-            background-color: #ef7828;
-            min-width: 110px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 10px 10px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            color: #fff;
-        }
-
-        /* Add a grey background color to dropdown links on hover */
-        .dropdown-content a:hover {
-            background-color: rgba(255, 255, 255, 0.648);
-            color: #fff;
-            
-        }
-        /* Show the dropdown menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
+    
 </head>
 
 
 <body>
+	<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills ">
+								<li><a href="#"><i class="fa fa-phone"></i> +962 77 01 88 821</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> FocusZone@gmail.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right ">
+							<ul class="nav navbar-nav col d-flex flex-row">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+		
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="../media/Focus Zone-logos_black.png" width="200px" height="100px" alt="" /></a>
+						</div>
+						<div class="btn-group pull-right">
+							<div class="btn-group">
+								 
+								<ul class="dropdown-menu">
+									<li><a href="#">Canada</a></li>
+									<li><a href="#">UK</a></li>
+								</ul>
+							</div>
+							
+							<div class="btn-group">
+								 
+								<ul class="dropdown-menu">
+									<li><a href="#">Canadian Dollar</a></li>
+									<li><a href="#">Pound</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav col d-flex flex-row">
+								<!-- <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i> Register</a></li>
 
-    <div class="wrapper">
-        <header>
-            <nav>
-                <div class="menu-icon">
-                    <i class="fa fa-bars fa-2x"></i>
-                </div>
-                <div class="logo">
-                    Focus Zone
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li class="active">
-                            <a href="../home.php">Home</a>
-                        </li>
-                        <li>
-                            <a href="../shop/shop.php">Shop</a>
-                        </li>
-                        
-                        <li>
-                            <div class="dropdown">
-                                <a class="dropbtn" id="navicon" href="http://localhost/php_mysql_project/registration/sign up.php">Profile</a>
-                                <div class="dropdown-content">
-                                   <?php
-                        include "../connect2.php";
-                        session_status();
-                        // session_destroy();
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+	
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="/home.php" class="active">Home</a></li>
+								<li class="dropdown"><a href="../shop/shop.php">Shop<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="../shop/cat1.php">Fitness Equipment</a></li>
+										<li><a href="../shop/cat2.php">Outdoor Equipment</a></li> 
+										<li><a href="../shop/cat3.php">Fitness Clothing </a></li> 
+										
+                                    </ul>
+                                </li> 
+								
+								<li><a href="404.html">About Us</a></li>
+								<li><a href="contact-us.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+	
+	
 
-                        if (isset($_SESSION['user_id '])) {
-                            $id = $_SESSION['user_id '];
-                            $name = "SELECT user_name  FROM `userstable` where user_id ='$id'";
-                            $result = $connect->query($login);
-                            $user_name = $result->fetch();
-
-                            echo "<li><a href='../registration/logout.php'>logout</a></li>";
-                            echo "Welcom " . $user_name;
-                        } else {
-                            echo " <a href='http://localhost/php_mysql_project/registration/sign up.php'>Register</a>";
-                            echo "<a href='http://localhost/php_mysql_project/registration/sign up.php'>Login</a>";
-                        }
-                        ?>
-
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="../check_cart/cart2.php" id="navicon2"><img src="../media/icons8-buying-50.png" width="70%" height="70%"></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-       
-
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
