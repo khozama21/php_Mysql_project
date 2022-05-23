@@ -83,10 +83,12 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <li>
                                 <a   href="http://localhost/php_mysql_project/check_cart/cart2.php">Cart</a>
                             </li>
+
+        
                             
                             <li>
                                 <div class="dropdown">
-                                    <a class="dropbtn" id="navicon" href="http://localhost/php_mysql_project/registration/sign up.php"><img src="icons8-test-account-80 (1).png" width="70%" height="70%"></a>
+                                    <a class="dropbtn" id="navicon" href="http://localhost/php_mysql_project/registration/sign up.php">Profile</a>
                                     <div class="dropdown-content">
                                         <a class="adrop" href="http://localhost/php_mysql_project/registration/sign up.php">Register</a>
                                         <a  class="adrop" href="http://localhost/php_mysql_project/registration/sign up.php">Login</a>

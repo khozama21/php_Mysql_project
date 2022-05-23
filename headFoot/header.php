@@ -93,7 +93,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="../media/Focus Zone-logos_black.png" width="200px" height="100px" alt="" /></a>
+							<a href="../home.php"><img src="../media/Focus Zone-logos_black.png" width="200px" height="100px" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
