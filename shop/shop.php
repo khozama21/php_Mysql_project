@@ -141,52 +141,8 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 								</div>
 							</div>
 						<?php endforeach ?>
-						<!-- <div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="fwy6zosqphc8hzjk0rgr.webp" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart">VIEW</a>
-										</div>
-									</div>
-								</div>
-
-							</div>
+					
 						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="fwy6zosqphc8hzjk0rgr.webp" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div> -->
-
-
-
-
-
-
 
 						<ul class="pagination">
 							<li class="active"><a href="">1</a></li>
@@ -194,7 +150,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 							<li><a href="">3</a></li>
 							<li><a href="">&raquo;</a></li>
 						</ul>
-					</div>
+					
 					<!--features_items-->
 				</div>
 			</div>

@@ -96,7 +96,7 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="menu">
           <ul>
             <li class="active">
-              <a href=" home.php">Home</a>
+              <a href="home.php">Home</a>
             </li>
             <li>
               <a href="http://localhost/php_mysql_project/shop/shop.php">Shop</a>
@@ -153,7 +153,7 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <small class="card-meta mb-2">View Our Collections Of</small>
                     <h4 class="card-title mt-0 ">
                       <!-- <a class="text-white" herf="#">Fittness Equipment</a> -->
-                      <a href="home.html"><?php echo $cat['category_name'] ?></a>
+                      <a href="../php_Mysql_project/shop/shop.php"><?php echo $cat['category_name'] ?></a>
                     </h4>
                   </div>
                 </div>

@@ -108,7 +108,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				<div class="col-sm-9 padding-right">
 					<div class="features_items">
 						<!--features_items-->
-						<h2 class="title text-center">Featured Items</h2>
+						<h2 class="title text-center">Outdoors Equipment</h2>
 
 						<?php foreach ($products as $product):?>
 						<div class="col-sm-4">
