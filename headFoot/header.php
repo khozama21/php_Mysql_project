@@ -93,7 +93,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="home.php"><img src="Focus Zone-logos_black.png" width="200px" height="100px" alt="" /></a>
+							<a href="http://localhost/php_mysql_project/home.php"><img src="Focus Zone-logos_black.png" width="200px" height="100px" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -118,10 +118,10 @@
 							<ul class="nav navbar-nav col d-flex flex-row">
 								<!-- <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
-								<li><a href="../check_cart/checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="../check_cart/cart2.php"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="../registration/login.php"><i class="fa fa-lock"></i> Login</a></li>
-								<li><a href="../registration/sign up.php"><i class="fa fa-lock"></i> Register</a></li>
+								<li><a href="http://localhost/php_mysql_project/check_cart/checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="http://localhost/php_mysql_project/check_cart/cart2.php"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="http://localhost/php_mysql_project/registration/login.php"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="http://localhost/php_mysql_project/registration/login.php"><i class="fa fa-lock"></i> Register</a></li>
 
 							</ul>
 						</div>
@@ -144,18 +144,18 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="home.php" class="active">Home</a></li>
-								<li class="dropdown"><a href="../shop/shop.php">Shop<i class="fa fa-angle-down"></i></a>
+								<li><a href="http://localhost/php_mysql_project/home.php" class="active">Home</a></li>
+								<li class="dropdown"><a href="http://localhost/php_mysql_project/shop/shop.php">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="../shop/cat1.php">Fitness Equipment</a></li>
-										<li><a href="../shop/cat2.php">Outdoor Equipment</a></li> 
-										<li><a href="../shop/cat3.php">Fitness Clothing </a></li> 
+                                        <li><a href="http://localhost/php_mysql_project/shop/cat1.php">Fitness Equipment</a></li>
+										<li><a href="http://localhost/php_mysql_project/shop/cat2.php">Outdoor Equipment</a></li> 
+										<li><a href="http://localhost/php_mysql_project/shop/cat3.php">Fitness Clothing </a></li> 
 										
                                     </ul>
                                 </li> 
 								
-								<li><a href="404.html">About Us</a></li>
-								<li><a href="../contact-us.php">Contact Us</a></li>
+								<li><a href="http://localhost/php_Mysql_project/aboutus.php">About Us</a></li>
+								<li><a href="http://localhost/php_mysql_project/contact-us.php">Contact Us</a></li>
 							</ul>
 						</div>
 					</div>

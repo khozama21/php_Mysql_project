@@ -138,18 +138,7 @@ img{
             </div>
           </div>
         </div>
-        <div class="column">
-          <div class="card">
-            <img src="https://cdn.dribbble.com/users/230875/screenshots/12215958/media/2c74bf1cf56023f67dc73f94fcb1b62b.jpg" alt="Mike" style="width:90%">
-            <div class="container">
-              <h2>Mohammad Amarneh</h2>
-              <p class="title">Developer</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>mike@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
-        </div>
+
         <div class="column">
           <div class="card">
             <img src="https://cdn.dribbble.com/users/230875/screenshots/12078079/media/eeb31ec92dd87b131f2930c08b91ac7c.jpg" alt="John" style="width:90%">
@@ -162,6 +151,20 @@ img{
             </div>
           </div>
         </div>
+        
+        <div class="column">
+          <div class="card">
+            <img src="https://cdn.dribbble.com/users/230875/screenshots/12215958/media/2c74bf1cf56023f67dc73f94fcb1b62b.jpg" alt="Mike" style="width:90%">
+            <div class="container">
+              <h2>Mohammad Amarneh</h2>
+              <p class="title">Developer</p>
+              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+              <p>mike@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>
+        
       
         <div class="column">
           <div class="card">

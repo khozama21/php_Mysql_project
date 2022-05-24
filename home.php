@@ -1,7 +1,7 @@
 <?php
 
 
-require 'connect2.php';
+require_once 'connect2.php';
 
 ?>
 <?php
@@ -24,18 +24,16 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- css -->
-  <link rel="stylesheet" href="home.css">
-  <!-- <link rel="stylesheet" href="slider.css"> -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/font-awesome.min.css" rel="stylesheet">
-  <link href="../css/prettyPhoto.css" rel="stylesheet">
-
-  <link href="../css/animate.css" rel="stylesheet">
-  <link href="../css/maain.css" rel="stylesheet">
+  <link href="http://localhost/php_mysql_project/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost/php_mysql_project/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://localhost/php_mysql_project/css/animate.css" rel="stylesheet">
+  <link href="http://localhost/php_mysql_project/css/maain.css" rel="stylesheet">
+  <link href="http://localhost/php_mysql_project/css/responsive.css" rel="stylesheet">
+  <link href="http://localhost/php_mysql_project/css/home.css" rel="stylesheet">
 
 
 
-  <link href="../css/responsive.css" rel="stylesheet">
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -59,7 +57,6 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
@@ -76,7 +73,20 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
+<style>
+  
+@media screen and (max-width: 768px) {
 
+.logo {
+
+ display: none;
+  
+
+
+}
+
+}
+</style>
 
 
 
@@ -119,7 +129,7 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </nav>
     </header>
-    <section class="hero">
+    <section class="hero" style="font-size: 1em; background: rgba(0, 0, 0, .4) url(http://localhost/php_mysql_project/media/karsten-winegeart-0Wra5YYVQJE-unsplash.jpg);   background-blend-mode: darken; background-size: cover; background-position: center center; background-repeat: no-repeat;">
       <div class="hero-inner">
         <h1>Find Everything You are Looking For</h1>
         <h2>View Our Awesome Sporting goods!</h2>
@@ -160,12 +170,92 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         </div>
       </div>
-    </section> 
+    </section>
 
- 
+
+    <section id="slider">
+      <!--slider-->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <!-- <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li> -->
+              </ol>
+
+              <div class="carousel-inner">
+                <div class="item active">
+                  <div class="col-sm-6">
+                    <h1><span>Focus</span>-Zone</h1>
+                    <h2>Free Shipping</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="https://www.americannatrader.com/application/views/themes/theme-1/assets/images/portfolio/project_01/karsten-winegeart-Jc-UCKGhIlU-unsplash.jpg" class="girl img-responsive" alt="" />
+                    <img src="images/home/pricing.png" class="pricing" alt="" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="col-sm-6">
+                    <h1><span>Focus</span>-Zone</h1>
+                    <h2>Huge Collection of sporting goods</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="https://www.americannatrader.com/application/views/themes/theme-1/assets/images/portfolio/project_01/karsten-winegeart-eGSBVVtVCCw-unsplash.jpg" class="girl img-responsive" alt="" />
+                    <img src="images/home/pricing.png" class="pricing" alt="" />
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-sm-6">
+                    <h1><span>Focus</span>-Zone</h1>
+                    <h2>100% Best Quality</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="https://www.americannatrader.com/application/views/themes/theme-1/assets/images/portfolio/project_01/karsten-winegeart-w6BHqa8ukc0-unsplash.jpg" class="girl img-responsive" alt="" />
+                    <img src="images/home/pricing.png" class="pricing" alt="" />
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-sm-6">
+                    <h1><span>Focus</span>-Zone</h1>
+                    <h2>50% OFF your First Order</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="https://www.americannatrader.com/application/views/themes/theme-1/assets/images/portfolio/project_01/karsten-winegeart-WO_th3WRJvw-unsplash.jpg" class="girl img-responsive" alt="" />
+                    <img src="images/home/pricing.png" class="pricing" alt="" />
+                  </div>
+                </div>
+
+
+              </div>
+
+              <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                <i class="fa fa-angle-left"></i>
+              </a>
+              <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/slider-->
+
 
     <!-- ******************* ABout us************************** -->
-    <section id="about">
+    <section class="container" id="about">
       <div class="container">
         <div class="row">
           <div class="column-66">
@@ -175,7 +265,9 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h1 class="large-font" style="color:#ef7828;">
               <b>Why Purchase Our Products?</b>
             </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?
+            </p>
           </div>
           <div class="column-33">
             <img src="media/pexels-cottonbro-4753891.jpg" width="300" height="500">
@@ -194,7 +286,8 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h1 class="large-font" style="color:#ef7828;">
               <b>How Can You Contact Us?</b>
             </h1>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, voluptatum modi corrupti non nemo error? Ducimus, doloribus natus! Delectus alias earum sit sint iusto laudantium accusantium repellendus non, dolor iste.</p>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quam id quibusdam distinctio commodi tempore mollitia asperiores a architecto aliquid dolores, harum eveniet veritatis quia, magni suscipit eum corporis quod?</p>
           </div>
         </div>
       </div>
@@ -202,22 +295,66 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </section>
 
 
+  <footer id="footer">
+    
+    <div class="footer-widget">
+      <div class="container">
+        <div class="row p-2">
+        
+          
+          <div class="col-sm-2">
+            <div class="single-widget">
+              <h2>Quick Shop</h2>
+              <ul class="nav nav-pills flex-column">
+                <li><a href="http://localhost/php_mysql_project/shop/cat1.php">Fitness Equipment</a></li>
+                <li><a href="http://localhost/php_mysql_project/shop/cat2.php">Outdoor Equipment</a></li>
+                <li><a href="http://localhost/php_mysql_project/shop/cat3.php">Fitness Clothing</a></li>
+               
+              </ul>
+            </div>
+            
+          </div>
+        
+          <div class="col-sm-2">
+            <div class="single-widget">
+              <h2>Quick Access</h2>
+              <ul class="nav nav-pills flex-column">
+                <li><a href="http://localhost/php_mysql_project/home.php">Home</a></li>
+                <li><a href="http://localhost/php_mysql_project/shop/shop.php">Shop</a></li>
+                <li><a href="http://localhost/php_Mysql_project/aboutus.php">About</a></li>
+                <li><a href="http://localhost/php_mysql_project/contact-us.php">Contact Us</a></li>
+              
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3 col-sm-offset-1">
+            <div class="single-widget">
+              <h2>Newsletter</h2>
+              <form action="#" class="searchform">
+                <input type="text" placeholder="Your email address" />
+                <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                <p>Get the most recent updates from <br />our site and be updated your self...</p>
+              </form>
+            </div>
+          </div>
 
-
-  
-  <!--/slider-->
-
-  <!-- <div class="container1">
-    <div class="fetaured">
-      <h2>
-        Featured Products
-      </h2>
-      <h5 style="margin-bottom: 40px ;">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h5>
-      <a href="shop/shop.php">See More</a>
+        </div>
+      </div>
     </div>
-  </div> -->
 
+    <div class="footer-bottom">
+      <div class="container p-1">
+        <div class="row">
+          <p class="pull-left">Copyright © 2022 Focus Zone Inc. All rights reserved.</p>
+          <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Group2</a></span></p>
+        </div>
+      </div>
+    </div>
 
+  </footer>
+  <!--/Footer-->
+
+ 
 
 
   <script>
@@ -248,4 +385,6 @@ $cats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </html>
 
-<?php include_once "../php_Mysql_project/headFoot/footer.php"?>
+<?php 
+// include_once "../php_Mysql_project/headFoot/footer.php"
+ ?>
