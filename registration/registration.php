@@ -93,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $user = $result->fetch();
 
                     $_SESSION['user_id '] = $user['user_id'];
+                    $_SESSION['user_name '] = $user['user_name'];
                     header('location: ../home.php');
                 } else {
                     echo "faild login";
