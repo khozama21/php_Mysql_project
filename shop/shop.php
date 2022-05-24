@@ -109,9 +109,10 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				</div>
 
 				<div class="col-sm-9 padding-right">
+				<h2 class="title text-center">Featured Items</h2>
 					<div class="features_items mt-5">
 						<!--features_items-->
-						<h2 class="title text-center">Featured Items</h2>
+					
 
 						<?php foreach ($products as $product) : ?>
 							<div class="col-sm-4">
@@ -119,7 +120,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 									<div class="single-products">
 										<div class="productinfo text-center">
 
-											<img src="<?= $product['product_image'] ?>" alt="" />
+										<img src="<?= $product['product_image'] ?>" alt="" />
 											<p><?php echo $product['product_name'] ?></p>
 
 											<h2><?php echo $product['product_price'] ?></h2>
